@@ -21,10 +21,11 @@ const MovieGallery = (props) => {
 
   let popularity = data.map((page) => {
     return (
-      <Link to={"/movie/" + page.id} key={page.id}>
+      <Link to={"/movie/" + page.id} key={page.id} className="mobile">
         <img
+          className="formobile"
           alt={page.original_title}
-          style={{ width: "150px", height: "230px", padding: "20px" }}
+          // style={{ width: "150px", height: "230px", padding: "20px" }}
           src={`https://image.tmdb.org/t/p/original${page.poster_path}`}
         />
       </Link>

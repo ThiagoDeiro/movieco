@@ -16,10 +16,27 @@
   justify-content: center;
 }
 
+.formobile {
+  width: 150px;
+  height: 230px;
+  padding: 20px;
+}
+
 .movie-container-list {
   display: flex;
   width: 80%;
   /* justify-content: center; */
   flex-direction: row;
   overflow: auto;
+}
+
+@media (max-width: 700px) {
+  .formobile {
+    width: 130px;
+    height: 200px;
+  }
+
+  .movie-container-list {
+    width: 100%;
+  }
 }

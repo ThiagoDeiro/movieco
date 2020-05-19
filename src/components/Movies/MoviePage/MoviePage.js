@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import "./MoviePage.css";
 import axios from "axios";
+import StarRatingComponent from "react-star-rating-component";
 const MoviePage = (props) => {
   let getThisId = props.match.params.id;
   const [video, setVideo] = useState([]);
@@ -20,12 +21,12 @@ const MoviePage = (props) => {
     fetchData();
   }, [getThisId]);
   console.log(video);
-  console.log(genres);
+  // console.log(genres);
 
   const itrailer = trailer.map((movie) => movie.key);
   const movieGenres = genres.map((gen) => gen.name);
 
-  console.log(movieGenres);
+  // console.log(movieGenres);
   return (
     <div className="movie-page">
       <img
@@ -40,6 +41,25 @@ const MoviePage = (props) => {
         <span>
           {movieGenres[0]} | {movieGenres[1]}
         </span>
+      </div>
+
+      <div className="movie-page-review">
+        <img
+          className="movie-page-review__poster"
+          alt={video.original_title}
+          src={`https://image.tmdb.org/t/p/original${video.poster_path}`}
+        />
+        <div style={{ fontSize: "20px" }}>
+          <StarRatingComponent
+            name="rate2"
+            editing={false}
+            starCount={10}
+            value={video.vote_average}
+            fullStarColor={"black"}
+          ></StarRatingComponent>
+        </div>
+        <p>{video.vote_average}</p>
+        <p>{video.overview}</p>
       </div>
       <div>
         <iframe
