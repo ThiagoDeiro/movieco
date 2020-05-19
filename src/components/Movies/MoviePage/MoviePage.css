@@ -1,0 +1,20 @@
+.movie-page {
+  margin-top: 57px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.movie-page__title {
+  position: absolute;
+  bottom: 150px;
+  left: 20px;
+  color: white;
+}
+
+.movie-page__imageStyle {
+  width: 98%;
+  height: 80vh;
+  /* filter: grayscale(100%); */
+  /* filter: opacity(60%); */
+}

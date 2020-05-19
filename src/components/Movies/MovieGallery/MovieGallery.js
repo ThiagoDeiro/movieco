@@ -17,7 +17,7 @@ const MovieGallery = (props) => {
     fetchData();
   }, []);
 
-  console.log(data);
+  // console.log(data);
 
   let popularity = data.map((page) => {
     return (
