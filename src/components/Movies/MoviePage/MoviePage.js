@@ -44,11 +44,19 @@ const MoviePage = (props) => {
           / cover no-repeat rgb(255, 255, 255)`,
         }}
       />
-      <div className="movie-page__title">
+      <div className="movie-page-info">
         <h1>{video.original_title}</h1>
-        <span>
-          {movieGenres[0]} | {movieGenres[1]}
-        </span>
+        <div className="movie-page-info__genre">
+          <span style={{ marginLeft: "-16px" }}>
+            {movieGenres[0]} | {movieGenres[1]}
+          </span>
+          <BeautyStars
+            maxStars={10}
+            value={video.vote_average}
+            size={"14px"}
+            inactiveColor={"white"}
+          ></BeautyStars>
+        </div>
       </div>
       <div className="movie-page-review">
         <div className="movie-page-review-about">
@@ -59,11 +67,6 @@ const MoviePage = (props) => {
           />
         </div>
         <div className="movie-page-review-about-main">
-          <BeautyStars
-            maxStars={10}
-            value={video.vote_average}
-            size={"15px"}
-          ></BeautyStars>
           <p>{video.vote_average}</p>
           <p>{video.overview}</p>
         </div>
