@@ -2,26 +2,30 @@ import React, { useState, useEffect } from "react";
 
 import "./MoviePage.css";
 import axios from "axios";
-import StarRatingComponent from "react-star-rating-component";
+import BeautyStars from "beauty-stars";
 const MoviePage = (props) => {
   let getThisId = props.match.params.id;
   const [video, setVideo] = useState([]);
   const [trailer, setTrailer] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [cast, setCast] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       const api_key = "dc9c1f8a8037bda70dfd05ce25d71cac";
       const response = await axios.get(
         `https://api.themoviedb.org/3/movie/${getThisId}?api_key=${api_key}&append_to_response=videos,credits`
       );
+
       setVideo(response.data);
       setTrailer(response.data.videos.results);
       setGenres(response.data.genres);
+      setCast(response.data.credits.cast);
     };
     fetchData();
   }, [getThisId]);
-  console.log(video);
+  // console.log(video);
   // console.log(genres);
+  // console.log(cast);
 
   const itrailer = trailer.map((movie) => movie.key);
   const movieGenres = genres.map((gen) => gen.name);
@@ -33,7 +37,11 @@ const MoviePage = (props) => {
         className="movie-page__imageStyle"
         alt={video.original_title}
         style={{
-          background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) center center / cover no-repeat, url(https://image.tmdb.org/t/p/original${video.backdrop_path}) center top / cover no-repeat rgb(255, 255, 255)`,
+          background: `linear-gradient(rgba(0, 0, 0, 0.6), 
+          rgba(0, 0, 0, 0.6)) center center / 
+          cover no-repeat, 
+          url(https://image.tmdb.org/t/p/original${video.backdrop_path}) center top 
+          / cover no-repeat rgb(255, 255, 255)`,
         }}
       />
       <div className="movie-page__title">
@@ -42,24 +50,23 @@ const MoviePage = (props) => {
           {movieGenres[0]} | {movieGenres[1]}
         </span>
       </div>
-
       <div className="movie-page-review">
-        <img
-          className="movie-page-review__poster"
-          alt={video.original_title}
-          src={`https://image.tmdb.org/t/p/original${video.poster_path}`}
-        />
-        <div style={{ fontSize: "20px" }}>
-          <StarRatingComponent
-            name="rate2"
-            editing={false}
-            starCount={10}
-            value={video.vote_average}
-            fullStarColor={"black"}
-          ></StarRatingComponent>
+        <div className="movie-page-review-about">
+          <img
+            className="movie-page-review-about__poster"
+            alt={video.original_title}
+            src={`https://image.tmdb.org/t/p/original${video.poster_path}`}
+          />
         </div>
-        <p>{video.vote_average}</p>
-        <p>{video.overview}</p>
+        <div className="movie-page-review-about-main">
+          <BeautyStars
+            maxStars={10}
+            value={video.vote_average}
+            size={"15px"}
+          ></BeautyStars>
+          <p>{video.vote_average}</p>
+          <p>{video.overview}</p>
+        </div>
       </div>
       <div>
         <iframe

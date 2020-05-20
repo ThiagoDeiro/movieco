@@ -18,10 +18,20 @@
   /* filter: grayscale(100%); */
   /* filter: opacity(60%); */
 }
+.movie-page-review {
+  display: flex;
+  width: 50vw;
+  margin: 5rem 0;
+  align-items: center;
+}
 
-.movie-page-review__poster {
+.movie-page-review-about__poster {
   width: 150px;
   height: 230px;
+}
+
+.movie-page-review-about-main {
+  margin: 30px;
 }
 
 @media (max-width: 700px) {
