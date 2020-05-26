@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 
+import Spinner from "../../../Ui/Spinner";
 import "./MoviePage.css";
 import axios from "axios";
 import BeautyStars from "beauty-stars";
 const MoviePage = (props) => {
   let getThisId = props.match.params.id;
-  const [video, setVideo] = useState([]);
+  const [movieData, setMovieData] = useState([]);
   const [trailer, setTrailer] = useState([]);
   const [genres, setGenres] = useState([]);
   const [cast, setCast] = useState([]);
@@ -15,44 +16,44 @@ const MoviePage = (props) => {
       const response = await axios.get(
         `https://api.themoviedb.org/3/movie/${getThisId}?api_key=${api_key}&append_to_response=videos,credits`
       );
-
-      setVideo(response.data);
+      setMovieData(response.data);
       setTrailer(response.data.videos.results);
       setGenres(response.data.genres);
       setCast(response.data.credits.cast);
     };
     fetchData();
   }, [getThisId]);
-  // console.log(video);
-  // console.log(genres);
-  // console.log(cast);
+  // console.log(movieData);
+
+  if (!movieData) {
+    return <Spinner></Spinner>;
+  }
 
   const itrailer = trailer.map((movie) => movie.key);
   const movieGenres = genres.map((gen) => gen.name);
 
-  // console.log(movieGenres);
   return (
     <div className="movie-page">
       <img
         className="movie-page__imageStyle"
-        alt={video.original_title}
+        alt={movieData.original_title}
         style={{
           background: `linear-gradient(rgba(0, 0, 0, 0.6), 
           rgba(0, 0, 0, 0.6)) center center / 
           cover no-repeat, 
-          url(https://image.tmdb.org/t/p/original${video.backdrop_path}) center top 
+          url(https://image.tmdb.org/t/p/original${movieData.backdrop_path}) center top 
           / cover no-repeat rgb(255, 255, 255)`,
         }}
       />
       <div className="movie-page-info">
-        <h1>{video.original_title}</h1>
+        <h1>{movieData.original_title}</h1>
         <div className="movie-page-info__genre">
           <span style={{ marginLeft: "-16px" }}>
             {movieGenres[0]} | {movieGenres[1]}
           </span>
           <BeautyStars
             maxStars={10}
-            value={video.vote_average}
+            value={movieData.vote_average}
             size={"14px"}
             inactiveColor={"white"}
           ></BeautyStars>
@@ -62,13 +63,13 @@ const MoviePage = (props) => {
         <div className="movie-page-review-about">
           <img
             className="movie-page-review-about__poster"
-            alt={video.original_title}
-            src={`https://image.tmdb.org/t/p/original${video.poster_path}`}
+            alt={movieData.original_title}
+            src={`https://image.tmdb.org/t/p/original${movieData.poster_path}`}
           />
         </div>
         <div className="movie-page-review-about-main">
-          <p>{video.vote_average}</p>
-          <p>{video.overview}</p>
+          <p>{movieData.vote_average}</p>
+          <p>{movieData.overview}</p>
         </div>
       </div>
       <div>
