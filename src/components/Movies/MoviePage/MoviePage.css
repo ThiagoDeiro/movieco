@@ -33,6 +33,13 @@
   width: 150px;
   height: 230px;
 }
+.movie-page-review-about-cast {
+  display: flex;
+  width: 80%;
+  /* justify-content: center; */
+  flex-direction: row;
+  overflow: auto;
+}
 
 .movie-page-review-about-main {
   margin: 30px;
