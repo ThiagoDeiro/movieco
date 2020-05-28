@@ -118,14 +118,15 @@ const MoviePage = (props) => {
                     alt={cast.name}
                   />
                 ) : (
-                  <div
+                  <img
                     style={{
                       width: "130px",
                       height: "230px",
                       padding: "20px",
-                      border: "1px solid black",
                     }}
-                  ></div>
+                    alt={cast.cast_id}
+                    src="https://lh3.googleusercontent.com/proxy/n5pDOmIBzlqsdqR6TpFVRHXNGe8jPbkH_pSnhqP1pEMxE2GmEj-siqpu13dju8SqbkXX2rKettn3LVAyZeBgk2B8HVHVsyS1yUA7ede-RPOFSyCVD37xXmH5_iJMo3TFE8E"
+                  ></img>
                 )}
 
                 <span key={cast.cast_id}>{cast.name}</span>
