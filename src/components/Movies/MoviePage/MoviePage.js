@@ -4,6 +4,7 @@ import Spinner from "../../../Ui/Spinner";
 import "./MoviePage.css";
 import axios from "axios";
 import BeautyStars from "beauty-stars";
+import noImage from "../../../assets/images/noImage.png";
 const MoviePage = (props) => {
   let getThisId = props.match.params.id;
   const [movieData, setMovieData] = useState([]);
@@ -125,7 +126,7 @@ const MoviePage = (props) => {
                       padding: "20px",
                     }}
                     alt={cast.cast_id}
-                    src="https://lh3.googleusercontent.com/proxy/n5pDOmIBzlqsdqR6TpFVRHXNGe8jPbkH_pSnhqP1pEMxE2GmEj-siqpu13dju8SqbkXX2rKettn3LVAyZeBgk2B8HVHVsyS1yUA7ede-RPOFSyCVD37xXmH5_iJMo3TFE8E"
+                    src={noImage}
                   ></img>
                 )}
 
