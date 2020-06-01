@@ -68,6 +68,9 @@
 .movie-page-review-about-main {
   margin: 30px;
 }
+.movie-page-trailers {
+  margin: 3rem;
+}
 
 @media (max-width: 700px) {
   .movie-page__imageStyle {

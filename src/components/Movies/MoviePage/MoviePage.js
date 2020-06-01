@@ -5,6 +5,7 @@ import "./MoviePage.css";
 import axios from "axios";
 import BeautyStars from "beauty-stars";
 import noImage from "../../../assets/images/noImage.png";
+import ReviewCard from "../../../Ui/review/reviewCard";
 const MoviePage = (props) => {
   let getThisId = props.match.params.id;
   const [movieData, setMovieData] = useState([]);
@@ -14,7 +15,7 @@ const MoviePage = (props) => {
       const api_key = "dc9c1f8a8037bda70dfd05ce25d71cac";
       const response = await axios
         .get(
-          `https://api.themoviedb.org/3/movie/${getThisId}?api_key=${api_key}&append_to_response=videos,credits`
+          `https://api.themoviedb.org/3/movie/${getThisId}?api_key=${api_key}&append_to_response=videos,credits,reviews`
         )
         .catch(error);
       setMovieData(response.data);
@@ -111,7 +112,10 @@ const MoviePage = (props) => {
         {listOfCast ? (
           movieCast.map((cast) => {
             return (
-              <div className="movie-page-review-about-cast__cards">
+              <div
+                className="movie-page-review-about-cast__cards"
+                key={movieCast.cast_id}
+              >
                 {cast.profile_path !== null ? (
                   <img
                     style={{ width: "150px", height: "215px", padding: "10px" }}
@@ -138,7 +142,7 @@ const MoviePage = (props) => {
           <div></div>
         )}
       </div>
-      <div>
+      <div className="movie-page-trailers">
         {listOfTrailers ? (
           <iframe
             title="movie"
@@ -149,6 +153,7 @@ const MoviePage = (props) => {
           <div></div>
         )}
       </div>
+      <ReviewCard>HELLO</ReviewCard>
     </div>
   );
 };
