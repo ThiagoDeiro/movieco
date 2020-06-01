@@ -75,25 +75,7 @@ const MoviePage = (props) => {
           / cover no-repeat rgb(255, 255, 255)`,
         }}
       />
-      <div className="movie-page-info">
-        <h1>{ALLDATA.original_title}</h1>
-        <div className="movie-page-info__genre">
-          {listOfGenres ? (
-            <span style={{ marginLeft: "-16px" }}>
-              {movieGenres[0]} | {movieGenres[1]}
-            </span>
-          ) : (
-            <span>Somenthing went wrong</span>
-          )}
 
-          <BeautyStars
-            maxStars={10}
-            value={ALLDATA.vote_average}
-            size={"14px"}
-            inactiveColor={"white"}
-          ></BeautyStars>
-        </div>
-      </div>
       <div className="movie-page-review">
         <div className="movie-page-review-about">
           <img
@@ -102,34 +84,51 @@ const MoviePage = (props) => {
             src={`https://image.tmdb.org/t/p/original${ALLDATA.poster_path}`}
           />
         </div>
-        <div className="movie-page-review-about-main">
-          <p>{ALLDATA.vote_average}</p>
+        <div className="movie-page-review-about-info">
+          <h1>{ALLDATA.original_title}</h1>
+
+          {listOfGenres ? (
+            <span>
+              {movieGenres[0]} | {movieGenres[1]}
+            </span>
+          ) : (
+            <span>Somenthing went wrong</span>
+          )}
+          <div className="movie-page-review-about-info__rating">
+            <BeautyStars
+              maxStars={1}
+              value={ALLDATA.vote_average}
+              size={"16px"}
+              inactiveColor={"white"}
+            ></BeautyStars>
+            <span style={{ paddingLeft: "10px" }}>{ALLDATA.vote_average}</span>
+          </div>
           <p>{ALLDATA.overview}</p>
         </div>
       </div>
-      <div className="movie-page-review-about-cast">
+      <h1>CAST</h1>
+      <div className="movie-page-review-about-cast scrollbar" id="style-4">
         {listOfCast ? (
           movieCast.map((cast) => {
             return (
-              <div>
+              <div className="movie-page-review-about-cast__cards">
                 {cast.profile_path !== null ? (
                   <img
-                    style={{ width: "150px", height: "230px", padding: "20px" }}
+                    style={{ width: "150px", height: "215px", padding: "10px" }}
                     src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
                     alt={cast.name}
                   />
                 ) : (
                   <img
                     style={{
-                      width: "130px",
-                      height: "230px",
-                      padding: "20px",
+                      width: "150px",
+                      height: "215px",
+                      padding: "10px",
                     }}
                     alt={cast.cast_id}
                     src={noImage}
                   ></img>
                 )}
-
                 <span key={cast.cast_id}>{cast.name}</span>
                 <p>{cast.character}</p>
               </div>

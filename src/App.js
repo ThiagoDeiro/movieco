@@ -3,15 +3,18 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navigation from "./Navigation/Navigation";
 import MoviePage from "./components/Movies/MoviePage/MoviePage";
 import MainPage from "./pages/MainPage";
+import "./App.css";
 const App = () => {
   return (
     <BrowserRouter>
       <div>
         <Navigation />
-        <Switch>
-          <Route path="/" exact component={MainPage} />
-          <Route path="/movie/:id" exact component={MoviePage} />
-        </Switch>
+        <div className="page-background">
+          <Switch>
+            <Route path="/" exact component={MainPage} />
+            <Route path="/movie/:id" exact component={MoviePage} />
+          </Switch>
+        </div>
       </div>
     </BrowserRouter>
   );

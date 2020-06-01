@@ -1,0 +1,9 @@
+.page-background {
+  /* background-image: linear-gradient(to right bottom, #1d1d32, #3d2540); */
+  background: rgb(29, 29, 50);
+  background: linear-gradient(
+    90deg,
+    rgba(29, 29, 50, 1) 0%,
+    rgba(92, 24, 101, 0.773546918767507) 100%
+  );
+}

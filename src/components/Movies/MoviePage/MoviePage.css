@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  color: white;
 }
 
 .movie-page__imageStyle {
@@ -33,6 +34,16 @@
   width: 150px;
   height: 230px;
 }
+.movie-page-review-about-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+.movie-page-review-about-info__rating {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+}
 .movie-page-review-about-cast {
   display: flex;
   width: 80%;
@@ -40,13 +51,24 @@
   flex-direction: row;
   overflow: auto;
 }
+#style-4::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  background-color: #6b4e4e;
+}
+#style-4::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
+}
+.movie-page-review-about-cast__cards {
+  text-align: center;
+}
 
 .movie-page-review-about-main {
   margin: 30px;
 }
-li {
-  margin-left: -15px;
-}
+
 @media (max-width: 700px) {
   .movie-page__imageStyle {
     width: 100%;
