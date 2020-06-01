@@ -153,11 +153,15 @@ const MoviePage = (props) => {
       </div>
       <div className="movie-page-trailers">
         {listOfTrailers ? (
-          <iframe
-            title="movie"
-            style={{ width: "420", height: "425" }}
-            src={`https://www.youtube.com/embed/${trailerKey[0]}?controls=1`}
-          ></iframe>
+          movieTrailer.map((clip) => {
+            return (
+              <iframe
+                title="movie"
+                style={{ width: "430", height: "435", marginLeft: "20px" }}
+                src={`https://www.youtube.com/embed/${clip.key}?controls=1`}
+              ></iframe>
+            );
+          })
         ) : (
           <div></div>
         )}
