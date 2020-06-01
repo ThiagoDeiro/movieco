@@ -34,16 +34,19 @@ const MoviePage = (props) => {
   let movieGenres;
   let movieCast;
   let trailerKey;
+  let movieReview;
 
   let listOfTrailers;
   let listOfGenres;
   let listOfCast;
+  let listOfReviews;
   if (movieData) {
     listOfTrailers = ALLDATA.videos;
     listOfGenres = ALLDATA.genres;
     listOfCast = ALLDATA.credits;
+    listOfReviews = ALLDATA.reviews;
   }
-  console.log(listOfCast);
+  console.log(listOfReviews);
   if (listOfTrailers) {
     movieTrailer = listOfTrailers.results;
     trailerKey = movieTrailer.map((movie) => movie.key);
@@ -57,7 +60,11 @@ const MoviePage = (props) => {
 
   if (movieCast) {
     let name = movieCast.map((movie) => movie.name);
-    console.log(name);
+    // console.log(name);
+  }
+
+  if (listOfReviews) {
+    movieReview = listOfReviews.results;
   }
   if (!movieData) {
     return <Spinner></Spinner>;
@@ -121,6 +128,7 @@ const MoviePage = (props) => {
                     style={{ width: "150px", height: "215px", padding: "10px" }}
                     src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
                     alt={cast.name}
+                    key={movieCast.cast_id}
                   />
                 ) : (
                   <img
@@ -131,6 +139,7 @@ const MoviePage = (props) => {
                     }}
                     alt={cast.cast_id}
                     src={noImage}
+                    key={movieCast.cast_id}
                   ></img>
                 )}
                 <span key={cast.cast_id}>{cast.name}</span>
@@ -153,7 +162,13 @@ const MoviePage = (props) => {
           <div></div>
         )}
       </div>
-      <ReviewCard>HELLO</ReviewCard>
+      {listOfReviews ? (
+        movieReview.map((review) => {
+          return <ReviewCard title={review.author} content={review.content} />;
+        })
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
