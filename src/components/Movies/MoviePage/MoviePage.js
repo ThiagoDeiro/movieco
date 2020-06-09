@@ -157,7 +157,12 @@ const MoviePage = (props) => {
             return (
               <iframe
                 title="movie"
-                style={{ width: "430", height: "435", marginLeft: "20px" }}
+                style={{
+                  width: "430",
+                  height: "435",
+                  marginLeft: "20px",
+                  marginTop: "10px",
+                }}
                 src={`https://www.youtube.com/embed/${clip.key}?controls=1`}
               ></iframe>
             );

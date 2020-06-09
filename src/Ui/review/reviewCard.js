@@ -3,8 +3,10 @@ import "./reviewCard.css";
 const ReviewCard = (props) => {
   return (
     <div className="review-card">
-      <h3>User : {props.title}</h3>
-      <p>{props.content}</p>
+      <h3 className="review-card-user">User : {props.title}</h3>
+      <div className="review-card-user-content">
+        <p>{props.content}</p>
+      </div>
       {props.children}
     </div>
   );

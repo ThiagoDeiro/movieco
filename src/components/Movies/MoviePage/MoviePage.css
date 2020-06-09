@@ -9,8 +9,6 @@
 .movie-page__imageStyle {
   width: 100%;
   height: 100vh;
-  /* filter: grayscale(100%); */
-  /* filter: opacity(60%); */
 }
 .movie-page-info {
   position: absolute;
