@@ -25,7 +25,6 @@
 .movie-container-list {
   display: flex;
   width: 80%;
-  /* justify-content: center; */
   flex-direction: row;
   overflow: auto;
 }
