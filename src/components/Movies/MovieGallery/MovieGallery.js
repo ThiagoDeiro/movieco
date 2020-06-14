@@ -25,7 +25,6 @@ const MovieGallery = (props) => {
         <img
           className="formobile"
           alt={page.original_title}
-          // style={{ width: "150px", height: "230px", padding: "20px" }}
           src={`https://image.tmdb.org/t/p/original${page.poster_path}`}
         />
       </Link>
