@@ -1,0 +1,10 @@
+.searchInput {
+  width: 40%;
+  height: 22px;
+  border-radius: 10px;
+  background: white;
+}
+.searchSubmit {
+  width: 10%;
+  height: 22px;
+}

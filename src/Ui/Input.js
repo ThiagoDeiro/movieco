@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+import "./Input.css";
 import axios from "axios";
 const Input = (props) => {
   const [value, setValue] = useState("");
@@ -24,8 +26,13 @@ const Input = (props) => {
 
   return (
     <React.Fragment>
-      <input type="text" value={value} onChange={searchValueHandler} />
-      <input type="submit" onClick={searchHandler} />
+      <input
+        className="searchInput"
+        type="text"
+        value={value}
+        onChange={searchValueHandler}
+      />
+      <input className="searchSubmit" type="submit" onClick={searchHandler} />
       {maps}
     </React.Fragment>
   );
