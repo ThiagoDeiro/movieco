@@ -32,7 +32,14 @@ const Input = (props) => {
         value={value}
         onChange={searchValueHandler}
       />
-      <input className="searchSubmit" type="submit" onClick={searchHandler} />
+      <a
+        href="/#"
+        className="action-button shadow animate red"
+        type="submit"
+        onClick={searchHandler}
+      >
+        Search
+      </a>
       {maps}
     </React.Fragment>
   );

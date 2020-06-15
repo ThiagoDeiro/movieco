@@ -8,7 +8,6 @@ const MovieBackground = (props) => {
     <div className="banner">
       <img className="mainBackground" src={back} alt="" />
       <div className="banner-text">
-        <h1>Search </h1>
         <Input />
       </div>
     </div>
