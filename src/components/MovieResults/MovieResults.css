@@ -1,0 +1,16 @@
+.movie-result {
+  width: 100vw;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.movie-results-content {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
