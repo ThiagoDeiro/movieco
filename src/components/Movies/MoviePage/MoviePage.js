@@ -10,12 +10,13 @@ const MoviePage = (props) => {
   let getThisId = props.match.params.id;
   const [movieData, setMovieData] = useState([]);
   const error = false;
+
+  const API_KEY = process.env.REACT_APP_MOVIE_KEY;
   useEffect(() => {
     const fetchData = async () => {
-      const api_key = "dc9c1f8a8037bda70dfd05ce25d71cac";
       const response = await axios
         .get(
-          `https://api.themoviedb.org/3/movie/${getThisId}?api_key=${api_key}&append_to_response=videos,credits,reviews`
+          `https://api.themoviedb.org/3/movie/${getThisId}?api_key=${API_KEY}&append_to_response=videos,credits,reviews`
         )
         .catch(error);
       setMovieData(response.data);

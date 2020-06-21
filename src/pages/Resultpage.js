@@ -6,18 +6,20 @@ const Resultpage = (props) => {
   // console.log(searchParams);
   const [data, setMovies] = useState([]);
   const error = false;
+
+  const API_KEY = process.env.REACT_APP_MOVIE_KEY;
+
   useEffect(() => {
     const fetchData = async () => {
-      const api_key = "dc9c1f8a8037bda70dfd05ce25d71cac";
       const response = await axios
         .get(
-          `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchParams}`
+          `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchParams}`
         )
         .catch(error);
       setMovies(response.data);
     };
     fetchData();
-  }, [searchParams, error]);
+  }, [searchParams, error, API_KEY]);
   // console.log(data);
 
   let getData;

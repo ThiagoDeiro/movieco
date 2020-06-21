@@ -6,11 +6,12 @@ import MovieBackground from "../MovieBackground/MovieBackground";
 import "./MovieGallery.css";
 const MovieGallery = (props) => {
   const [data, setMovie] = useState([]);
+
+  const API_KEY = process.env.REACT_APP_MOVIE_KEY;
   useEffect(() => {
     const fetchData = async () => {
-      const api_key = "dc9c1f8a8037bda70dfd05ce25d71cac";
       const response = await axios.get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc`
       );
       setMovie(response.data.results);
     };
