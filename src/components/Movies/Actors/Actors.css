@@ -1,42 +1,30 @@
-.actorBlock {
-  height: 100%;
-  width: 100%;
+.person {
+  /* width: 100vw; */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  /* margin-top: 58px; */
+}
+.person-container {
+  padding-top: 58px;
+  /* height: 70vh; */
+  width: 80%;
   display: flex;
   justify-content: center;
   color: white;
 }
-.actorBlock-personInfo {
+.person-container_overview {
+  padding-left: 50px;
+  padding-top: 50px;
   width: 70%;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-direction: row;
-  margin-top: 100px;
-}
-.position {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 80%;
 }
 
-.actorBlock-personInfo_card_details {
-  margin-left: 50px;
-}
-.actorBlock-personInfo_card_details_movies_order {
-  display: flex;
+.person-container-card {
   width: 100%;
-  justify-content: center;
-  flex-direction: row;
-  overflow: auto;
-  margin: 30px;
-}
-#style-4::-webkit-scrollbar {
-  width: 8px;
-  height: 10px;
-  background-color: #6b4e4e;
-}
-#style-4::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  overflow-x: scroll;
+  padding-top: 40px;
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
+import noImage from "../../../assets/images/noImage.png";
 import axios from "axios";
 import "./Actors.css";
 const Actors = (props) => {
@@ -32,50 +33,57 @@ const Actors = (props) => {
   if (movieCredits) {
     filmOf = movieCredits.cast;
   }
-
-  console.log(filmOf);
+  console.log(perInfo);
 
   return (
-    <div className="actorBlock">
-      <div className="actorBlock-personInfo">
-        <div className="actorBlock-personInfo_card">
+    <div className="person">
+      <div className="person-container">
+        <div>
           <img
             alt={perInfo.id}
             src={`https://image.tmdb.org/t/p/original${perInfo.profile_path}`}
             style={{ height: "550px", borderRadius: "20px" }}
           ></img>
           <h1>Personal Info</h1>
-          <h4>Know For</h4>
-          <span>{perInfo.known_for_department}</span>
-          <h4>Place of Birth</h4>
-          <span>{perInfo.place_of_birth}</span>
+          <h4>Known For</h4>
+          <p>{perInfo.known_for_department}</p>
           <h4>Date of Birth</h4>
-          <span>{perInfo.birthday}</span>
+          <p>{perInfo.birthday}</p>
+          <h4>Place of Birth</h4>
+          <p>{perInfo.place_of_birth}</p>
         </div>
-        <div className="position">
-          <div className="actorBlock-personInfo_card_details">
-            <h1>{perInfo.name}</h1>
-            <h3>Biography</h3>
-            <p>{perInfo.biography}</p>
-            <h4>Filmography</h4>
-          </div>
-          <div
-            className="actorBlock-personInfo_card_details_movies_order"
-            id="style-4"
-          >
+        <div className="person-container_overview">
+          <h1>{perInfo.name}</h1>
+          <p>{perInfo.biography}</p>
+          <h2>Filmography</h2>
+          <div className="person-container-card" id="style-4">
             {filmOf ? (
               filmOf.map((info) => {
                 return (
-                  <Link>
-                    <img
-                      alt={info.title}
-                      src={`https://image.tmdb.org/t/p/original${info.poster_path}`}
-                      style={{
-                        width: "150px",
-                        height: "255px",
-                        padding: "10px",
-                      }}
-                    />
+                  <Link to={"/movie/" + info.id} key={info.id}>
+                    {info.poster_path !== null ? (
+                      <img
+                        style={{
+                          width: "150px",
+                          height: "215px",
+                          padding: "10px",
+                        }}
+                        src={`https://image.tmdb.org/t/p/original${info.poster_path}`}
+                        alt={info.name}
+                        key={info.id}
+                      />
+                    ) : (
+                      <img
+                        style={{
+                          width: "150px",
+                          height: "215px",
+                          padding: "10px",
+                        }}
+                        alt={info.id}
+                        src={noImage}
+                        key={info.id}
+                      ></img>
+                    )}
                   </Link>
                 );
               })
