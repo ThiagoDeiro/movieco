@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
+import cardHor from "../../../Ui/card/cardHor";
 import MovieBackground from "../MovieBackground/MovieBackground";
 import "./MovieGallery.css";
 const MovieGallery = (props) => {
@@ -35,7 +36,7 @@ const MovieGallery = (props) => {
     <div className="container">
       <MovieBackground />
       <h1>Most Popular Movies</h1>
-      <div className="movie-container">
+      <div className="movie-container ">
         <div className="movie-container-list scrollbar" id="style-4">
           {popularity}
         </div>

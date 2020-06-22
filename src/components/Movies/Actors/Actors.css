@@ -1,0 +1,42 @@
+.actorBlock {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+.actorBlock-personInfo {
+  width: 70%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 100px;
+}
+.position {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+.actorBlock-personInfo_card_details {
+  margin-left: 50px;
+}
+.actorBlock-personInfo_card_details_movies_order {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: row;
+  overflow: auto;
+  margin: 30px;
+}
+#style-4::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  background-color: #6b4e4e;
+}
+#style-4::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
