@@ -61,6 +61,8 @@
 }
 .movie-page-review-about-cast__cards {
   text-align: center;
+  text-decoration: none;
+  color: white;
 }
 
 .movie-page-review-about-main {

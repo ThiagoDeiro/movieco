@@ -16,7 +16,7 @@ const MovieGallery = (props) => {
       setMovie(response.data.results);
     };
     fetchData();
-  }, []);
+  }, [API_KEY]);
 
   // console.log(data);
 
@@ -36,7 +36,9 @@ const MovieGallery = (props) => {
       <MovieBackground />
       <h1>Most Popular Movies</h1>
       <div className="movie-container">
-        <div className="movie-container-list">{popularity}</div>
+        <div className="movie-container-list scrollbar" id="style-4">
+          {popularity}
+        </div>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import axios from "axios";
 import BeautyStars from "beauty-stars";
 import noImage from "../../../assets/images/noImage.png";
 import ReviewCard from "../../../Ui/review/reviewCard";
+import { Link } from "react-router-dom";
 const MoviePage = (props) => {
   let getThisId = props.match.params.id;
   const [movieData, setMovieData] = useState([]);
@@ -22,7 +23,7 @@ const MoviePage = (props) => {
       setMovieData(response.data);
     };
     fetchData();
-  }, [getThisId, error]);
+  }, [getThisId, error, API_KEY]);
   console.log(movieData);
 
   let ALLDATA;
@@ -120,7 +121,8 @@ const MoviePage = (props) => {
         {listOfCast ? (
           movieCast.map((cast) => {
             return (
-              <div
+              <Link
+                to={"actor/" + cast.id}
                 className="movie-page-review-about-cast__cards"
                 key={movieCast.cast_id}
               >
@@ -145,7 +147,7 @@ const MoviePage = (props) => {
                 )}
                 <span key={cast.cast_id}>{cast.name}</span>
                 <p>{cast.character}</p>
-              </div>
+              </Link>
             );
           })
         ) : (
