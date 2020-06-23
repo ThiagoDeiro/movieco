@@ -4,7 +4,6 @@ import Navigation from "./Navigation/Navigation";
 import MoviePage from "./components/Movies/MoviePage/MoviePage";
 import MainPage from "./pages/MainPage";
 import Resultpage from "./pages/Resultpage";
-import ActorsPage from "./pages/ActorsPage";
 import Actors from "./components/Movies/Actors/Actors";
 import "./App.css";
 const App = () => {

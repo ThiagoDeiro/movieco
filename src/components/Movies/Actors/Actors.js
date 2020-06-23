@@ -74,11 +74,7 @@ const Actors = (props) => {
                   <Link to={"/movie/" + info.id} key={info.id}>
                     {info.poster_path !== null ? (
                       <img
-                        style={{
-                          width: "150px",
-                          height: "215px",
-                          padding: "10px",
-                        }}
+                        className="person-container-card__img"
                         src={`https://image.tmdb.org/t/p/original${info.poster_path}`}
                         alt={info.name}
                         key={info.id}

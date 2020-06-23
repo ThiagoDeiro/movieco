@@ -28,8 +28,28 @@
   overflow-x: scroll;
   padding-top: 40px;
 }
+.person-container-card__img {
+  width: 150px;
+  height: 215px;
+  padding: 10px;
+}
 .person-container-card-list {
   border: 1px solid black;
   background-color: grey;
   padding: 20px;
+}
+
+@media (max-width: 700px) {
+  .person-container {
+    flex-direction: column;
+  }
+  .person-container_overview {
+    width: 90%;
+    padding: 0;
+  }
+  .person-container-card__img {
+    width: 120px;
+    height: 200px;
+    padding: 5px;
+  }
 }
