@@ -1,6 +1,6 @@
 .person {
   /* width: 100vw; */
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   align-content: center;
@@ -27,4 +27,9 @@
   display: flex;
   overflow-x: scroll;
   padding-top: 40px;
+}
+.person-container-card-list {
+  border: 1px solid black;
+  background-color: grey;
+  padding: 20px;
 }

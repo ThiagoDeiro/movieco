@@ -124,7 +124,7 @@ const MoviePage = (props) => {
               <Link
                 to={"actor/" + cast.id}
                 className="movie-page-review-about-cast__cards"
-                key={movieCast.cast_id}
+                key={movieCast.id}
               >
                 {cast.profile_path !== null ? (
                   <img

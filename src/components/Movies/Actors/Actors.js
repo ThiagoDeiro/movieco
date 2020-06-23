@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 import noImage from "../../../assets/images/noImage.png";
+import PersonItem from "./personItem";
 import axios from "axios";
 import "./Actors.css";
 const Actors = (props) => {
@@ -85,6 +86,18 @@ const Actors = (props) => {
                       ></img>
                     )}
                   </Link>
+                );
+              })
+            ) : (
+              <div></div>
+            )}
+          </div>
+          <h1>Carrer</h1>
+          <div className="person-container-card-list">
+            {filmOf ? (
+              filmOf.map((acting) => {
+                return (
+                  <PersonItem date={acting.release_date} name={acting.title} />
                 );
               })
             ) : (
