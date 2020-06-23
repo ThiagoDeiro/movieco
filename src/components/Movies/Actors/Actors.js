@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Moment from "react-moment";
 
 import { Link } from "react-router-dom";
 import noImage from "../../../assets/images/noImage.png";
@@ -34,7 +35,16 @@ const Actors = (props) => {
   if (movieCredits) {
     filmOf = movieCredits.cast;
   }
+
   console.log(perInfo);
+
+  let date;
+  let toFix;
+  if (filmOf) {
+    date = filmOf.map((date) => {
+      // return <Moment format="dd-MMM-YYYY">{date.release_date}</Moment>;
+    });
+  }
 
   return (
     <div className="person">
@@ -97,7 +107,11 @@ const Actors = (props) => {
             {filmOf ? (
               filmOf.map((acting) => {
                 return (
-                  <PersonItem date={acting.release_date} name={acting.title} />
+                  <PersonItem
+                    key={acting.id}
+                    date={acting.release_date}
+                    name={acting.title}
+                  />
                 );
               })
             ) : (
