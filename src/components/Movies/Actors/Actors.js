@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import noImage from "../../../assets/images/noImage.png";
 import PersonItem from "./personItem";
 import axios from "axios";
+import PersonImageCard from "./personImageCard";
 import "./Actors.css";
 const Actors = (props) => {
   const cast_id = props.match.params.id;
@@ -36,32 +37,18 @@ const Actors = (props) => {
     filmOf = movieCredits.cast;
   }
 
-  console.log(perInfo);
-
-  let date;
-  let toFix;
-  if (filmOf) {
-    date = filmOf.map((date) => {
-      // return <Moment format="dd-MMM-YYYY">{date.release_date}</Moment>;
-    });
-  }
+  console.log(filmOf);
 
   return (
     <div className="person">
       <div className="person-container">
         <div>
-          <img
-            alt={perInfo.id}
+          <PersonImageCard
             src={`https://image.tmdb.org/t/p/original${perInfo.profile_path}`}
-            style={{ height: "550px", borderRadius: "20px" }}
-          ></img>
-          <h1>Personal Info</h1>
-          <h4>Known For</h4>
-          <p>{perInfo.known_for_department}</p>
-          <h4>Date of Birth</h4>
-          <p>{perInfo.birthday}</p>
-          <h4>Place of Birth</h4>
-          <p>{perInfo.place_of_birth}</p>
+            departament={perInfo.known_for_department}
+            birthday={perInfo.birthday}
+            place={perInfo.place_of_birth}
+          />
         </div>
         <div className="person-container_overview">
           <h1>{perInfo.name}</h1>
@@ -103,11 +90,16 @@ const Actors = (props) => {
             {filmOf ? (
               filmOf.map((acting) => {
                 return (
-                  <PersonItem
+                  <Link
                     key={acting.id}
-                    date={acting.release_date}
-                    name={acting.title}
-                  />
+                    to={`/movie/` + acting.id}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <PersonItem
+                      date={acting.release_date}
+                      name={acting.title}
+                    />
+                  </Link>
                 );
               })
             ) : (
