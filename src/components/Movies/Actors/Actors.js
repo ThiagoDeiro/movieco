@@ -11,7 +11,6 @@ const Actors = (props) => {
   const cast_id = props.match.params.id;
   const [actor, setActor] = useState([]);
   const error = false;
-  //   console.log(cast_id);
   const API_KEY = process.env.REACT_APP_MOVIE_KEY;
   useEffect(() => {
     const fetchData = async () => {
